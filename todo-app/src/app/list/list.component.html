@@ -1,6 +1,6 @@
-<div >
+<div *ngIf="list" class="{{list.category}}">
     <!--  (click)="detail(article.id)" -->
-    <h3>list.name</h3>
+    <h3>{{list.name}}</h3>
     <!-- <div *ngIf="!isDetail"> -->
     <p>aantal items in list</p>
     <ul>
