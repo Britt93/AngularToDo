@@ -16,6 +16,7 @@ export class ListDetailComponent implements OnInit {
 
   ngOnInit(): void {
       const listId = this.route.snapshot.paramMap.get('id');
+      console.log(this.route.snapshot.paramMap.get('test'));
       if (listId != null) {
         let listTemp = this.listService.getListById(+listId) ?? null;
         if(listTemp != null) {
