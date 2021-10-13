@@ -1,7 +1,7 @@
 <div *ngIf="list" class="{{list.category}}">
     <!--  (click)="detail(article.id)" -->
     <h3>{{list.name}}</h3>
-    <!-- <div *ngIf="!isDetail"> -->
+    <div *ngIf="!isDetail">
     <p>aantal items in list</p>
     <ul>
         <li>checkbox item1</li>
@@ -9,9 +9,10 @@
         <li>...</li>
         <!-- {{list.content | shortenContent : 250}} -->
     </ul>
-    <!-- </div> -->
+    <button (click)="detail(list.id)">Read more</button>
+    </div>
 
-    <!-- <div *ngIf="isDetail"> -->
+    <div *ngIf="isDetail">
 <div>
     <p>edit - del</p>
 </div>
@@ -27,5 +28,5 @@
             <li>checkbox item6  |   edit    |   del</li>
             <li>ADD</li>
         </ul>
-    <!-- </div> -->
+    </div>
 </div>
