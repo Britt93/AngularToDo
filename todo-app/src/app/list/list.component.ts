@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
   }
 
   detail(id: number) {
-    this.router.navigate(['/article', id]);
+    this.router.navigate(['/list', id]);
   }
 
 }
