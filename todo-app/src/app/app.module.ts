@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { ListDetailComponent } from './list-detail/list-detail.component';
 import { ItemComponent } from './item/item.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { ItemComponent } from './item/item.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
