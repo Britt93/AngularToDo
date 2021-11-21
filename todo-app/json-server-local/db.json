@@ -1,0 +1,130 @@
+{
+    "lists": [
+      {
+        "id": 1,
+        "name": "Taak Angular",
+        "color": "#afdeee",
+        "textcolor": "#000000"
+      },
+      {
+        "id": 2,
+        "name": "Grote Kuis",
+        "color": "#eab48d",
+        "textcolor": "#000000"
+      },
+      {
+        "id": 3,
+        "name": "Taak MD-AR",
+        "color": "#afdeee",
+        "textcolor": "#000000"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "listId": 1,
+        "text": "api aanmaken",
+        "date": "2021-10-30T22:00:00.000Z",
+        "statusId": 1,
+        "order": 1
+      },
+      {
+        "id": 2,
+        "listId": 1,
+        "title": "crud",
+        "date": "2021-10-26T22:00:00.000Z",
+        "statusId": 1,
+        "order": 2
+      },
+      {
+        "id": 3,
+        "listId": 1,
+        "title": "maak status service",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 3
+      },
+      {
+        "id": 4,
+        "listId": 1,
+        "title": "drag and drop",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 4
+      },
+      {
+        "id": 5,
+        "listId": 1,
+        "title": "opmaak verbeteren",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 5
+      },
+      {
+        "id": 6,
+        "listId": 2,
+        "title": "afstoffen",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 1
+      },
+      {
+        "id": 7,
+        "listId": 2,
+        "title": "stofzuigen",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 2
+      },
+      {
+        "id": 8,
+        "listId": 2,
+        "title": "dwijlen",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 4
+      },
+      {
+        "id": 9,
+        "listId": 2,
+        "title": "afwassen",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 3
+      },
+      {
+        "id": 10,
+        "listId": 3,
+        "title": "nav naar AR",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 2
+      },
+      {
+        "id": 11,
+        "listId": 3,
+        "title": "comm flutter - wikitude",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 3
+      },
+      {
+        "id": 12,
+        "listId": 3,
+        "title": "models",
+        "date": "2021-10-24T22:00:00.000Z",
+        "statusId": 1,
+        "order": 1
+      }
+    ],
+    "statuses": [
+      {
+        "id": 1,
+        "name": "ongoing"
+      },
+      {
+        "id": 2,
+        "name": "done"
+      }
+    ]
+  }

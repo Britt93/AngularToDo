@@ -3,4 +3,7 @@ export interface Item {
     id: number;
     text: string;
     listId: number;
+    //order
+    //status
+    //date
 }
