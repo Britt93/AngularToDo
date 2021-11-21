@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { List } from '../list';
+import { ItemService } from '../item.service';
+import { Item } from '../item';
+
 
 
 @Component({
@@ -13,9 +16,12 @@ export class ListComponent implements OnInit {
   @Input() list: List = {id: 0, name: "", category: ""};
   @Input() isDetail: boolean = false;
 
-  constructor(private router: Router) { }
+  items: Item[] = [];
+
+  constructor(private router: Router, private itemService: ItemService) { }
 
   ngOnInit(): void {
+    this.items = this.itemService.getItems();
   }
 
   detail(id: number) {

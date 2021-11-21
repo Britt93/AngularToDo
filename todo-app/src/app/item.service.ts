@@ -54,18 +54,24 @@ let item7: Item = {
 };
 
 let item8: Item = {
+  id: 7,
+  text: "strijken",
+  listId: 2
+};
+
+let item9: Item = {
   id: 8,
   text: "nav naar AR",
   listId: 3
 };
 
-let item9: Item = {
+let item10: Item = {
   id: 9,
   text: "comm flutter - wikitude",
   listId: 3
 };
 
-let item10: Item = {
+let item11: Item = {
   id: 10,
   text: "models",
   listId: 3
@@ -81,6 +87,7 @@ this.items.push(item7);
 this.items.push(item8);
 this.items.push(item9);
 this.items.push(item10);
+this.items.push(item11);
 
 
    }
@@ -93,9 +100,9 @@ this.items.push(item10);
     return this.items.find(i=>i.id === id) ?? null;
   }
 
-  getItemsOfList(listId: number) : Item | null {
-    return this.items.find(i=>i.listId === listId) ?? null;
-  }
+  /*getItemsOfList(listId: number) : Item | null {
+    return this.items.
+  }*/
 
 
 
