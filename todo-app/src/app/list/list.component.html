@@ -1,37 +1,31 @@
-<div *ngIf="list" class="{{list.category}}">
+<div *ngIf="list"  >
+    <div class="list" style="border: 5, solid, black;">
     <!--  (click)="detail(article.id)" -->
-    <h3>{{list.name}}</h3>
+    <h3 >{{list.name}}</h3>
     <div *ngIf="!isDetail">
-    <p>aantal items in list</p>
-    <!--<ul>
-        <li>checkbox item1</li>
-        <li>checkbox item2</li>
-        <li>...</li>
-        
-    </ul>-->
-    <li *ngFor="let item of items"><app-item  *ngIf="list.id == item.listId " [item]="item"></app-item></li>
-    <!-- {{list.content | shortenContent : 250}} -->
-    <button (click)="detail(list.id)">Read more</button>
+        <p>aantal items in list: </p>
+        <ul class="d-none d-md-block">
+            <li *ngFor="let item of (items$ | async)">
+                <app-item [item]="item"></app-item>
+            </li>
+        </ul>
+        <!-- {{list.content | shortenContent : 3}} -->
+        <button (click)="detail(list.id)">Read more</button>
     </div>
 
     <div *ngIf="isDetail">
-<div>
-    <p>edit - del</p>
-</div><!-- if checked -> onderaan plaatsen in't grijs sort on date / drag-and-drop -->
-        <!--<ul>
-            <li>checkbox item1  |   edit    |   del</li>
-            <li>checkbox item2  |   edit    |   del</li>
-            <li>checkbox item3  |   edit    |   del</li>
-            <li>checkbox item4  |   edit    |   del</li>
-            <li>checkbox item5  |   edit    |   del</li>
-            <li>checkbox item6  |   edit    |   del</li>
-        </ul>-->
-<ul>
-    <li *ngFor="let item of items" ><app-item *ngIf="list.id == item.listId ; else elseBlock"  [item]="item" ></app-item></li>
-    <ng-template #elseBlock class="d-none"></ng-template>
-</ul>
-        
-            <p>ADD</p>
-        
+        <div>
+            <p>edit - del</p>
+        </div>
+        <ul>
+            <li *ngFor="let item of (items$ | async)">
+                <app-item [item]="item"></app-item>
+            </li>
+
+        </ul>
+
+        <p>ADD</p>
+
     </div>
+</div>
 </div>

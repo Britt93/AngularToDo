@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { List } from './list'
 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,9 +11,9 @@ export class ListService {
 //maak lege array van class List / declare List-array
   private lists: List[] = [];
 
-  constructor() { 
+  constructor(private httpClient: HttpClient) { 
     //maak obj "list1" van class List
-    let list1: List = {
+    /*let list1: List = {
       id: 1,
       name: "Taak Angular",
       category: "school"
@@ -30,16 +33,16 @@ export class ListService {
     //voeg obj "list1" van class List toe aan de array "lists"
     this.lists.push(list1);
     this.lists.push(list2);
-    this.lists.push(list3);
+    this.lists.push(list3);*/
   }
 
   //functie getLists krijgt een lijst terug van class List
-  getLists(): List[] {
-    return this.lists;
+  getLists(): Observable<List[]> {
+    return this.httpClient.get<List[]>("http://localhost:3000/lists");
   }
 
-  getListById(id: number) : List | null {
-    return this.lists.find(l=>l.id === id) ?? null;
+  getListById(id: number) : Observable<List>{
+    return this.httpClient.get<List>("http://localhost:3000/lists/" + id);
   }
 
 

@@ -3,7 +3,7 @@ export interface Item {
     id: number;
     text: string;
     listId: number;
-    //order
-    //status
-    //date
+    order: number;
+    statusId: number;
+    date: string;
 }

@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item';
 
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 //maak lege array van class Item / declare Item-array
-private items: Item[] = [];
-  constructor() {
+//private items: Item[] = [];
+  constructor(private httpClient: HttpClient) {
 
 //maak obj "item1" van class List
-let item1: Item = {
+/*let item1: Item = {
   id: 1,
   text: "api implementeren",
   listId: 1
@@ -87,22 +90,31 @@ this.items.push(item7);
 this.items.push(item8);
 this.items.push(item9);
 this.items.push(item10);
-this.items.push(item11);
+this.items.push(item11);*/
 
 
    }
 
-   getItems(): Item[] {
+   /*getItems(): Item[] {
     return this.items;
-  }
 
-  getItemById(id: number) : Item | null {
-    return this.items.find(i=>i.id === id) ?? null;
-  }
-
-  /*getItemsOfList(listId: number) : Item | null {
-    return this.items.
   }*/
+  getItems(): Observable<Item[]> {
+    return this.httpClient.get<Item[]>("http://localhost:3000/items");
+  }
+
+  /*getItemById(id: number) : Item | null {
+    return this.items.find(i=>i.id === id) ?? null;
+  }*/
+
+  getItemById(id: number): Observable<Item> {
+    return this.httpClient.get<Item>("http://localhost:3000/items/" + id);
+  }
+
+  getItemsOfList(listId: number) : Observable<Item[]> {
+    let params = new HttpParams().set('listId', listId);
+    return this.httpClient.get<Item[]>("http://localhost:3000/items", {params: params});
+  }
 
 
 

@@ -1,5 +1,5 @@
-<p>home works!</p>
+<button>nieuwe lijst maken</button>
 <div class="row">
 <!-- info zie How to show multiple articles.../calling the service in HomeComp -->
-<app-list class="col-sm-12 col-md-12, col-lg-6, col-xl-4  d-flex align-items-stretch" *ngFor="let list of lists" [list]="list" [isDetail]="false"></app-list>
+<app-list class="col-12 col-sm-5 col-md-3 col-lg-3 col-xl-3  d-flex align-items-stretch border border-dark rounded p-3 m-2" *ngFor="let list of (lists$ | async)" [list]="list" [isDetail]="false"></app-list>
 </div>

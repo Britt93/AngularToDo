@@ -3,20 +3,17 @@
       {
         "id": 1,
         "name": "Taak Angular",
-        "color": "#afdeee",
-        "textcolor": "#000000"
+        "color": "#afdeee"
       },
       {
         "id": 2,
         "name": "Grote Kuis",
-        "color": "#eab48d",
-        "textcolor": "#000000"
+        "color": "#eab48d"
       },
       {
         "id": 3,
         "name": "Taak MD-AR",
-        "color": "#afdeee",
-        "textcolor": "#000000"
+        "color": "#afdeee"
       }
     ],
     "items": [
@@ -31,7 +28,7 @@
       {
         "id": 2,
         "listId": 1,
-        "title": "crud",
+        "text": "crud",
         "date": "2021-10-26T22:00:00.000Z",
         "statusId": 1,
         "order": 2
@@ -39,7 +36,7 @@
       {
         "id": 3,
         "listId": 1,
-        "title": "maak status service",
+        "text": "maak status service",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 3
@@ -47,7 +44,7 @@
       {
         "id": 4,
         "listId": 1,
-        "title": "drag and drop",
+        "text": "drag and drop",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 4
@@ -55,7 +52,7 @@
       {
         "id": 5,
         "listId": 1,
-        "title": "opmaak verbeteren",
+        "text": "opmaak verbeteren",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 5
@@ -63,7 +60,7 @@
       {
         "id": 6,
         "listId": 2,
-        "title": "afstoffen",
+        "text": "afstoffen",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 1
@@ -71,7 +68,7 @@
       {
         "id": 7,
         "listId": 2,
-        "title": "stofzuigen",
+        "text": "stofzuigen",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 2
@@ -79,7 +76,7 @@
       {
         "id": 8,
         "listId": 2,
-        "title": "dwijlen",
+        "text": "dwijlen",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 4
@@ -87,7 +84,7 @@
       {
         "id": 9,
         "listId": 2,
-        "title": "afwassen",
+        "text": "afwassen",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 3
@@ -95,7 +92,7 @@
       {
         "id": 10,
         "listId": 3,
-        "title": "nav naar AR",
+        "text": "nav naar AR",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 2
@@ -103,7 +100,7 @@
       {
         "id": 11,
         "listId": 3,
-        "title": "comm flutter - wikitude",
+        "text": "comm flutter - wikitude",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 3
@@ -111,7 +108,7 @@
       {
         "id": 12,
         "listId": 3,
-        "title": "models",
+        "text": "models",
         "date": "2021-10-24T22:00:00.000Z",
         "statusId": 1,
         "order": 1

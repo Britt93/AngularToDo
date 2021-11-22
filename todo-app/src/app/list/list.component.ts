@@ -4,6 +4,8 @@ import { List } from '../list';
 import { ItemService } from '../item.service';
 import { Item } from '../item';
 
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -13,15 +15,16 @@ import { Item } from '../item';
 })
 export class ListComponent implements OnInit {
   //komt van list.ts
-  @Input() list: List = {id: 0, name: "", category: ""};
+  @Input() list: List = {id: 0, name: "", color: ""};
   @Input() isDetail: boolean = false;
 
-  items: Item[] = [];
+  
+  items$: Observable<Item[]> = new Observable<Item[]>(); 
 
   constructor(private router: Router, private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems();
+    this.items$ = this.itemService.getItemsOfList(this.list.id);
   }
 
   detail(id: number) {
