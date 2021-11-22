@@ -3,7 +3,9 @@
     <!--  (click)="detail(article.id)" -->
     <h3 >{{list.name}}</h3>
     <div *ngIf="!isDetail">
-        <p>aantal items in list: </p>
+        <!--<p>aantal items in list: </p>-->
+        <button>edit</button> 
+        <button>del</button>
         <ul class="d-none d-md-block">
             <li *ngFor="let item of (items$ | async)">
                 <app-item [item]="item"></app-item>
@@ -15,11 +17,11 @@
 
     <div *ngIf="isDetail">
         <div>
-            <p>edit - del</p>
+            
         </div>
         <ul>
             <li *ngFor="let item of (items$ | async)">
-                <app-item [item]="item"></app-item>
+                <app-item [item]="item"></app-item> edit | del
             </li>
 
         </ul>
