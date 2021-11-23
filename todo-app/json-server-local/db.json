@@ -20,108 +20,98 @@
       {
         "id": 1,
         "listId": 1,
-        "text": "api aanmaken",
+        "description": "api aanmaken",
         "date": "2021-10-30T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 1
       },
       {
         "id": 2,
         "listId": 1,
-        "text": "crud",
+        "description": "crud",
         "date": "2021-10-26T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 2
       },
       {
         "id": 3,
         "listId": 1,
-        "text": "maak status service",
+        "description": "maak status service",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 3
       },
       {
         "id": 4,
         "listId": 1,
-        "text": "drag and drop",
+        "description": "drag and drop",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 4
       },
       {
         "id": 5,
         "listId": 1,
-        "text": "opmaak verbeteren",
+        "description": "opmaak verbeteren",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 5
       },
       {
         "id": 6,
         "listId": 2,
-        "text": "afstoffen",
+        "description": "afstoffen",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 1
       },
       {
         "id": 7,
         "listId": 2,
-        "text": "stofzuigen",
+        "description": "stofzuigen",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 2
       },
       {
         "id": 8,
         "listId": 2,
-        "text": "dwijlen",
+        "description": "dwijlen",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 4
       },
       {
         "id": 9,
         "listId": 2,
-        "text": "afwassen",
+        "description": "afwassen",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": true,
         "order": 3
       },
       {
         "id": 10,
         "listId": 3,
-        "text": "nav naar AR",
+        "description": "nav naar AR",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 2
       },
       {
         "id": 11,
         "listId": 3,
-        "text": "comm flutter - wikitude",
+        "description": "comm flutter - wikitude",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 3
       },
       {
         "id": 12,
         "listId": 3,
-        "text": "models",
+        "description": "models",
         "date": "2021-10-24T22:00:00.000Z",
-        "statusId": 1,
+        "isDone": false,
         "order": 1
-      }
-    ],
-    "statuses": [
-      {
-        "id": 1,
-        "name": "ongoing"
-      },
-      {
-        "id": 2,
-        "name": "done"
       }
     ]
   }

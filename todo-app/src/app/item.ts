@@ -1,9 +1,9 @@
 //show multiple items (interface, service, component interaction)
 export interface Item {
     id: number;
-    text: string;
+    description: string;
     listId: number;
     order: number;
-    statusId: number;
+    isDone: boolean;
     date: string;
 }

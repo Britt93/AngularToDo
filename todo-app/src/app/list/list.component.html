@@ -3,14 +3,16 @@
     <!--  (click)="detail(article.id)" -->
     <h3 >{{list.name}}</h3>
     <div *ngIf="!isDetail">
-        <!--<p>aantal items in list: </p>-->
+        <p>aantal items: {{(items$ | async)?.length}}</p>
         <button>edit</button> 
         <button>del</button>
         <ul class="d-none d-md-block">
-            <li *ngFor="let item of (items$ | async)">
+            <li *ngFor="let item of (items$ | async) | slice:0:3;">
                 <app-item [item]="item"></app-item>
             </li>
         </ul>
+
+
         <!-- {{list.content | shortenContent : 3}} -->
         <button (click)="detail(list.id)">Read more</button>
     </div>
@@ -26,7 +28,7 @@
 
         </ul>
 
-        <p>ADD</p>
+        <button>ADD</button>
 
     </div>
 </div>
