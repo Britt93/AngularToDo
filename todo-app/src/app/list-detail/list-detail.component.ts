@@ -14,23 +14,26 @@ import { ItemService } from '../item.service';
   styleUrls: ['./list-detail.component.scss']
 })
 export class ListDetailComponent implements OnInit {
-  list: List = {id: 0, name:"", color:""};
+  list: List = { id: 0, name: "", color: "" };
 
-  items$: Observable<Item[]> = new Observable<Item[]>(); 
+  items$: Observable<Item[]> = new Observable<Item[]>();
   constructor(private listService: ListService, private itemService: ItemService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-      const listId = this.route.snapshot.paramMap.get('id');
-      console.log(this.route.snapshot.paramMap.get('test'));
-      if (listId != null) {
-        /*let listTemp = this.listService.getListById(+listId) ?? null;
-        if(listTemp != null) {
-          this.list = listTemp;
-        }*/
-        this.listService.getListById(+listId).subscribe(result => this.list = result);
-        this.items$ = this.itemService.getItemsOfList(this.list.id);
-        
+    const listId = this.route.snapshot.paramMap.get('id');
+    console.log(listId);
+    if (listId != null) {
+      /*let listTemp = this.listService.getListById(+listId) ?? null;
+      if(listTemp != null) {
+        this.list = listTemp;
+      }*/
+      this.listService.getListById(+listId).subscribe(result => {
+        this.list = result;
       }
+      );
+
+
+    }
   }
 
 }
