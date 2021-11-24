@@ -18,6 +18,9 @@ export class ListComponent implements OnInit {
   @Input() list: List = {id: 0, name: "", color: ""};
   @Input() isDetail: boolean = false;
 
+  colors() {
+    return {'color': this.list.color}
+  }
   
   items$: Observable<Item[]> = new Observable<Item[]>(); 
 

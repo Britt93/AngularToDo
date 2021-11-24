@@ -1,7 +1,7 @@
 <div *ngIf="list"  >
     <div class="list" style="border: 5, solid, black;">
     <!--  (click)="detail(article.id)" -->
-    <h3 >{{list.name}}</h3>
+    <h3 [ngStyle]="colors()">{{list.name}}</h3>
     <div *ngIf="!isDetail">
         <p>aantal items: {{(items$ | async)?.length}}</p>
         <button>edit</button> 
