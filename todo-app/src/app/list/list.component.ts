@@ -4,7 +4,10 @@ import { List } from '../list';
 import { ItemService } from '../item.service';
 import { Item } from '../item';
 
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+
+import { ListService } from '../list.service';
+
 
 
 
@@ -24,7 +27,15 @@ export class ListComponent implements OnInit {
   
   items$: Observable<Item[]> = new Observable<Item[]>(); 
 
-  constructor(private router: Router, private itemService: ItemService) { }
+
+  lists: List[] = [];
+  lists$: Subscription = new Subscription();
+  deleteList$: Subscription = new Subscription();
+  errorMessage: string = '';
+
+
+
+  constructor(private router: Router, private itemService: ItemService, private listService: ListService) { }
 
   ngOnInit(): void {
     this.items$ = this.itemService.getItemsOfList(this.list.id);
@@ -32,6 +43,25 @@ export class ListComponent implements OnInit {
 
   detail(id: number) {
     this.router.navigate(['/list', id]);
+  }
+
+  edit(id: number) {
+    //Navigate to form in edit mode
+    this.router.navigate(['list/form'], {state: {id: id, mode: 'edit'}});
+  }
+
+  delete(id: number) {
+    this.deleteList$ = this.listService.deleteList(id).subscribe(result => {
+      //all went well
+      this.getLists();
+    }, error => {
+      //error
+      this.errorMessage = error.message;
+    });
+  }
+
+  getLists() {
+    this.lists$ = this.listService.getLists().subscribe(result => this.lists = result);
   }
 
 }

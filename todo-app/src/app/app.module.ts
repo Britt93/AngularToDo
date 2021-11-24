@@ -10,6 +10,7 @@ import { ItemComponent } from './item/item.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ListFormComponent } from './list-form/list-form.component';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     HomeComponent,
     ListDetailComponent,
-    ItemComponent
+    ItemComponent,
+    ListFormComponent
   ],
   imports: [
     BrowserModule,

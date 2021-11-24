@@ -4,16 +4,16 @@
     <h3 [ngStyle]="colors()">{{list.name}}</h3>
     <div *ngIf="!isDetail">
         <p>aantal items: {{(items$ | async)?.length}}</p>
-        <button>edit</button> 
-        <button>del</button>
+        <!-- todo: button geen kleur, enkel icoontjes -->
+        <button type="button" class="btn btn-success" (click)="edit(list.id)"><i class="fas fa-edit"></i></button>
+        <button type="button" class="btn btn-danger" (click)="delete(list.id)"><i class="far fa-trash-alt"></i></button>
+
         <ul class="d-none d-md-block">
             <li *ngFor="let item of (items$ | async) | slice:0:3;">
                 <app-item [item]="item"></app-item>
             </li>
         </ul>
 
-
-        <!-- {{list.content | shortenContent : 3}} -->
         <button (click)="detail(list.id)">Read more</button>
     </div>
 
