@@ -9,7 +9,7 @@ import { ListDetailComponent } from './list-detail/list-detail.component';
 import { ItemComponent } from './item/item.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListFormComponent } from './list-form/list-form.component';
 
 
@@ -27,7 +27,8 @@ import { ListFormComponent } from './list-form/list-form.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

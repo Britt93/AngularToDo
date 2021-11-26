@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { List } from '../list';
 import { ListService } from '../list.service';
-import {Subscription} from 'rxjs';
+import { Subscription } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list-form',
@@ -10,59 +11,102 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./list-form.component.scss']
 })
 export class ListFormComponent implements OnInit, OnDestroy {
+
   isAdd: boolean = false;
   isEdit: boolean = false;
   listId: number = 0;
 
-  list: List = { id: 0, name: "", color:"" };
+  //list: List = { id: 0, name: "", color:"" };
 
   isSubmitted: boolean = false;
   errorMessage: string = "";
 
-  list$: Subscription = new Subscription();
+  //list$: Subscription = new Subscription();
   postList$: Subscription = new Subscription();
   putList$: Subscription = new Subscription();
 
-  constructor(private router: Router, private listService: ListService) {
-    this.isAdd = this.router.getCurrentNavigation()?.extras.state?.mode === 'add';
+  // reactive form
+  listForm = new FormGroup({
+    id: new FormControl(''),
+    name: new FormControl('', [Validators.required]),
+    color: new FormControl('', [Validators.required])
+  });
+
+  constructor(private router: Router, private route: ActivatedRoute, private listService: ListService) {
+    /*this.isAdd = this.router.getCurrentNavigation()?.extras.state?.mode === 'add';
     this.isEdit = this.router.getCurrentNavigation()?.extras.state?.mode === 'edit';
     this.listId = +this.router.getCurrentNavigation()?.extras.state?.id;
 
     if (this.listId != null && this.listId > 0) {
       this.list$ = this.listService.getListById(this.listId).subscribe(result => this.list = result);
-    }
+    }*/
+
+    this.isAdd = this.router.url === '/newlist';
+    this.isEdit = !this.isAdd;
 
   }
 
   ngOnInit(): void {
+
+
+    // get article if in edit
+    if (this.isEdit) {
+      const id = this.route.snapshot.paramMap.get('id');
+      if (id != null) {
+        this.listId = +id;
+        this.listService.getListById(+id).subscribe(result => {
+          this.listForm.patchValue({
+            id: result.id,
+            name: result.name,
+            color: result.color
+          });
+        });
+      }
+    }
   }
 
   ngOnDestroy(): void {
-    this.list$.unsubscribe();
     this.postList$.unsubscribe();
     this.putList$.unsubscribe();
   }
 
-  onSubmit() {
-    this.isSubmitted = true;
+  getTitle(): string {
     if (this.isAdd) {
-      this.postList$ = this.listService.postList(this.list).subscribe(result => {
-                //all went well
-                this.router.navigateByUrl("/list");
-              },
-              error => {
-                this.errorMessage = error.message;
-              });
-    }
-    if (this.isEdit) {
-      this.putList$ = this.listService.putList(this.listId, this.list).subscribe(result => {
-                //all went well
-                this.router.navigateByUrl("/list");
-              },
-              error => {
-                this.errorMessage = error.message;
-              });
+      return 'Add new list';
+    } else {
+      return 'Edit list';
     }
   }
 
+  
+  onSubmit() {
+    //this.isSubmitted = true;
+    if (this.isAdd) {
+      //add
+      this.postList$ = this.listService.postList(this.listForm.value).subscribe(result => {
+                //all went well
+                this.router.navigateByUrl("/");
+              },
+              error => {
+                this.isSubmitted = false;
+                this.errorMessage = error.message;
+              });
+    }
+    //edit
+    //if (this.isEdit) {
+      else{
+      this.putList$ = this.listService.putList(this.listId, this.listForm.value).subscribe(result => {
+                //all went well
+                this.router.navigateByUrl("/");
+              },
+              error => {
+                this.isSubmitted = false;
+                this.errorMessage = error.message;
+              });
+    }
+
+
+  }
+
 }
+

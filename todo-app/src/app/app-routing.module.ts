@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'list', component: ListComponent },
   { path: 'list/:id', component: ListDetailComponent },
-  { path: 'list/form', component: ListFormComponent }
+  { path: 'newlist', component: ListFormComponent },
+  { path: 'editlist/:id', component: ListFormComponent}
 ];
 
 @NgModule({

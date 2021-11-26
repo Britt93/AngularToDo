@@ -37,12 +37,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   add() {
     //Navigate to form in add mode
-    this.router.navigate(['list/form'], {state: {mode: 'add'}});
+    this.router.navigate(['newlist']);
   }
 
   edit(id: number) {
     //Navigate to form in edit mode
-    this.router.navigate(['list/form'], {state: {id: id, mode: 'edit'}});
+    //this.router.navigate(['list/form'], {state: {id: id, mode: 'edit'}});
+    this.router.navigate(['editlist/' + id]);
   }
 
   delete(id: number) {
