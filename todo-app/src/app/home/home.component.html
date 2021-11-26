@@ -1,18 +1,21 @@
 <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
     {{errorMessage}}
-  </div>
+</div>
 
-  <button type="button" class="btn btn-dark addBtn" (click)="add()"><i class="fas fa-plus"></i> Maak een nieuwe lijst</button>
+<button type="button" class="btn btn-dark addBtn" (click)="add()"><i class="fas fa-plus"></i> Maak een nieuwe
+    lijst</button>
 
 <div class="row">
-<!-- info zie How to show multiple articles.../calling the service in HomeComp -->
-<div class="col-10 col-sm-5 col-md-3 col-lg-3 col-xl-3  d-flex align-items-stretch border rounded p-3 m-2 row" *ngFor="let list of lists">
-<app-list class="col"  [list]="list" [isDetail]="false">
+    <!-- info zie How to show multiple articles.../calling the service in HomeComp -->
+    <div class="col-10 col-sm-5 col-md-3 col-lg-3 col-xl-3  d-flex align-items-stretch border rounded p-3 m-2"
+        *ngFor="let list of lists">
+        <div class="row">
+            <app-list class="col-12" [list]="list" [isDetail]="false">
 
-</app-list>
-<!--
-<button type="button" class="btn btn-dark col" id="testbtn" >test</button>
-<button type="button" class="btn btn-dark col" id="testbtn2" >test2</button>
--->
-</div>
+            </app-list>
+
+            <button type="button" class="btn btn-dark col-4 editBtn mx-3 my-2" (click)="edit(list.id)"><i class="fas fa-edit"></i></button>
+            <button type="button" class="btn btn-danger col-4 delBtn my-2" (click)="delete(list.id)"><i class="fas fa-trash-alt"></i></button>
+        </div>
+    </div>
 </div>
