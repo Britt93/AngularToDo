@@ -11,9 +11,11 @@ import { ItemService } from '../item.service';
 })
 export class ItemFormComponent implements OnInit {
 
- // @Input() backRoute: String = '';
- listId: number = 0;
+ //listId: number = 0;
+ //OF
+ //list: List = ...;
 
+ @Input() listId!:number;
 
   itemId: number = 0;
   isAdd: boolean = false;
@@ -29,15 +31,15 @@ export class ItemFormComponent implements OnInit {
     id: new FormControl(''),
     description: new FormControl('', [Validators.required]),
     date: new FormControl('', [Validators.required]),
-    //listId: new FormControl('', [Validators.required]),
-    //order: new FormControl('', [Validators.required]),
-    //isDone: new FormControl('', [Validators.required]),
+    listId: new FormControl('', [Validators.required]),
+    order: new FormControl('', [Validators.required]),
+    isDone: new FormControl('', [Validators.required]),
   });
 
 
 
   constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService,) {
-    this.isAdd = this.router.url === '/newarticle';
+    this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
   }
 
@@ -53,12 +55,20 @@ export class ItemFormComponent implements OnInit {
             description: result.description,
             date: result.date,
             listId: result.listId,
-            //order: result.order,
-            //isDone: result.isDone,
+            order: 20,
+            isDone: false,
           });
         });
         
       }
+    }
+    //add
+    else{
+      this.itemForm.patchValue({
+        //listId: 1,
+        order: 20,
+        isDone: false,
+      });
     }
   }
 
