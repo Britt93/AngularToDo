@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -10,6 +10,10 @@ import { ItemService } from '../item.service';
   styleUrls: ['./item-form.component.scss']
 })
 export class ItemFormComponent implements OnInit {
+
+ // @Input() backRoute: String = '';
+ listId: number = 0;
+
 
   itemId: number = 0;
   isAdd: boolean = false;
@@ -48,11 +52,12 @@ export class ItemFormComponent implements OnInit {
             id: result.id,
             description: result.description,
             date: result.date,
-            //listId: result.listId,
+            listId: result.listId,
             //order: result.order,
             //isDone: result.isDone,
           });
         });
+        
       }
     }
   }
@@ -70,6 +75,8 @@ export class ItemFormComponent implements OnInit {
     }
   }
 
+
+
   onSubmit() {
     //this.isSubmitted = true;
     if (this.isAdd) {
@@ -77,6 +84,7 @@ export class ItemFormComponent implements OnInit {
       this.postItem$ = this.itemService.postItem(this.itemForm.value).subscribe(result => {
         //all went well
         this.router.navigateByUrl("/");
+        //this.back();
       },
         error => {
           this.isSubmitted = false;
@@ -89,6 +97,7 @@ export class ItemFormComponent implements OnInit {
       this.putItem$ = this.itemService.putItem(this.itemId, this.itemForm.value).subscribe(result => {
         //all went well
         this.router.navigateByUrl("/");
+        //this.back();
       },
         error => {
           this.isSubmitted = false;
@@ -96,5 +105,5 @@ export class ItemFormComponent implements OnInit {
         });
     }
   }
-  
+
 }

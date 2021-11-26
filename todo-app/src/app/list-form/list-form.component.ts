@@ -33,15 +33,7 @@ export class ListFormComponent implements OnInit, OnDestroy {
   });
 
   constructor(private router: Router, private route: ActivatedRoute, private listService: ListService) {
-    /*this.isAdd = this.router.getCurrentNavigation()?.extras.state?.mode === 'add';
-    this.isEdit = this.router.getCurrentNavigation()?.extras.state?.mode === 'edit';
-    this.listId = +this.router.getCurrentNavigation()?.extras.state?.id;
-
-    if (this.listId != null && this.listId > 0) {
-      this.list$ = this.listService.getListById(this.listId).subscribe(result => this.list = result);
-    }*/
-
-    this.isAdd = this.router.url === '/newlist';
+    this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
 
   }
