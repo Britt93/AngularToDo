@@ -77,10 +77,6 @@ export class ListFormComponent implements OnInit, OnDestroy {
       return 'Edit list';
     }
   }
-
-  /*onSubmit(): void {
-    this.isSubmitted = true;
-  }*/
   
   onSubmit() {
     //this.isSubmitted = true;
@@ -108,30 +104,7 @@ export class ListFormComponent implements OnInit, OnDestroy {
               });
     }
 
-
   }
-
-  /*submitData(): void {
-    if (this.isAdd) {
-      //Add
-      this.postList$ = this.listService.postList(this.listForm.value).subscribe(result => {
-          this.router.navigateByUrl('/');
-        },
-        error => {
-          this.isSubmitted = false;
-          this.errorMessage = error.message;
-        });
-    } else {
-      //edit
-      this.putList$ = this.listService.putList(this.listId, this.listForm.value).subscribe(result => {
-          this.router.navigateByUrl('/');
-        },
-        error => {
-          this.isSubmitted = false;
-          this.errorMessage = error.message;
-        });
-      }
-    }*/
 
 }
 

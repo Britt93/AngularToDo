@@ -18,50 +18,65 @@ import { ListService } from '../list.service';
 })
 export class ListComponent implements OnInit {
   //komt van list.ts
-  @Input() list: List = {id: 0, name: "", color: ""};
+  @Input() list: List = { id: 0, name: "", color: "" };
   @Input() isDetail: boolean = false;
 
   colors() {
-    return {'color': this.list.color}
+    return { 'color': this.list.color }
   }
-  
+  /*
   items$: Observable<Item[]> = new Observable<Item[]>(); 
-
 
   lists: List[] = [];
   lists$: Subscription = new Subscription();
   deleteList$: Subscription = new Subscription();
   errorMessage: string = '';
+*/
 
+  items: Item[] = [];
+  items$: Subscription = new Subscription();
+  deleteItem$: Subscription = new Subscription();
 
+  errorMessage: string = '';
 
   constructor(private router: Router, private itemService: ItemService, private listService: ListService) { }
 
   ngOnInit(): void {
-    this.items$ = this.itemService.getItemsOfList(this.list.id);
+    //this.items$ = this.itemService.getItemsOfList(this.list.id);
+    this.getItems()
   }
 
   detail(id: number) {
     this.router.navigate(['/list', id]);
   }
 
+  ngOnDestroy(): void {
+    this.items$.unsubscribe();
+    this.deleteItem$.unsubscribe();
+  }
+
+  add() {
+    //Navigate to form in add mode
+    this.router.navigate(['newitem']);
+  }
+
   edit(id: number) {
     //Navigate to form in edit mode
-    this.router.navigate(['list/form'], {state: {id: id, mode: 'edit'}});
+    this.router.navigate(['edititem/' + id] );
   }
 
   delete(id: number) {
-    this.deleteList$ = this.listService.deleteList(id).subscribe(result => {
+    this.deleteItem$ = this.itemService.deleteItem(id).subscribe(result => {
       //all went well
-      this.getLists();
+      this.getItems();
     }, error => {
       //error
       this.errorMessage = error.message;
     });
   }
 
-  getLists() {
-    this.lists$ = this.listService.getLists().subscribe(result => this.lists = result);
+  getItems() {
+    this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
   }
 
 }

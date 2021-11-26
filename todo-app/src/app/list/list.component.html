@@ -1,35 +1,43 @@
-<div *ngIf="list"  >
-    <div class="list" style="border: 5, solid, black;">
-    <!--  (click)="detail(article.id)" -->
-    <h3 [ngStyle]="colors()">{{list.name}}</h3>
-    <div *ngIf="!isDetail">
-        <p>aantal items: {{(items$ | async)?.length}}</p>
-               
-        <!--<button type="button" class="btn btn-success" (click)="edit(list.id)"><i class="fas fa-edit"></i></button>
+<div *ngIf="list">
+    <div>
+        <!--  (click)="detail(article.id)" -->
+        <h3 [ngStyle]="colors()">{{list.name}}</h3>
+        <div *ngIf="!isDetail">
+            <p>Total items: {{(items)?.length}}</p>
+
+            <!--<button type="button" class="btn btn-success" (click)="edit(list.id)"><i class="fas fa-edit"></i></button>
         <button type="button" class="btn btn-danger" (click)="delete(list.id)"><i class="far fa-trash-alt"></i></button>-->
 
-        <ul class="d-none d-md-block">
-            <li *ngFor="let item of (items$ | async) | slice:0:3;">
-                <app-item [item]="item"></app-item>
-            </li>
-        </ul>
+            <ul class="d-none d-md-block">
+                <li *ngFor="let item of items | slice:0:3;">
+                    <app-item [item]="item"></app-item>
+                </li>
+            </ul>
 
-        <button class="btn btn-dark" (click)="detail(list.id)">Read more</button>
-    </div>
-
-    <div *ngIf="isDetail">
-        <div>
-            
+            <button class="btn btn-dark" (click)="detail(list.id)">See all items</button>
         </div>
-        <ul>
-            <li *ngFor="let item of (items$ | async)">
-                <app-item [item]="item"></app-item> <button>edit</button> <button>del</button>
-            </li>
 
-        </ul>
+        <div *ngIf="isDetail">
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{errorMessage}}
+              </div>
+            <ul>
+                <li *ngFor="let item of items" class="row ">
 
-        <button>ADD</button>
+                    <input type="checkbox" class="col-1">
+                    <app-item [item]="item" class="col-9"></app-item>
+                    <button type="button" class="btn btn-dark col-4 editBtn col-2" (click)="edit(item.id)">
+                        <i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger col-4 delBtn col-2" (click)="delete(item.id)">
+                        <i class="fas fa-trash-alt"></i></button>
 
+                </li>
+
+            </ul>
+
+            <button type="button" class="btn btn-dark addBtn" (click)="add()"><i class="fas fa-plus"></i> New list</button>
+
+
+        </div>
     </div>
-</div>
 </div>

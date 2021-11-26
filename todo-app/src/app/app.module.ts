@@ -11,6 +11,7 @@ import { ItemComponent } from './item/item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListFormComponent } from './list-form/list-form.component';
+import { ItemFormComponent } from './item-form/item-form.component';
 
 
 
@@ -21,7 +22,8 @@ import { ListFormComponent } from './list-form/list-form.component';
     HomeComponent,
     ListDetailComponent,
     ItemComponent,
-    ListFormComponent
+    ListFormComponent,
+    ItemFormComponent
   ],
   imports: [
     BrowserModule,
