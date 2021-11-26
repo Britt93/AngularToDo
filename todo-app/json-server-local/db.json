@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Taak MD-AR",
       "color": "#afdeee"
+    },
+    {
+      "id": 4,
+      "name": "Test",
+      "color": "#FFC300"
     }
   ],
   "items": [

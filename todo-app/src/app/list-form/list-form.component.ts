@@ -78,11 +78,11 @@ export class ListFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSubmit(): void {
+  /*onSubmit(): void {
     this.isSubmitted = true;
-  }
+  }*/
   
-  /*onSubmit() {
+  onSubmit() {
     //this.isSubmitted = true;
     if (this.isAdd) {
       //add
@@ -109,9 +109,9 @@ export class ListFormComponent implements OnInit, OnDestroy {
     }
 
 
-  }*/
+  }
 
-  submitData(): void {
+  /*submitData(): void {
     if (this.isAdd) {
       //Add
       this.postList$ = this.listService.postList(this.listForm.value).subscribe(result => {
@@ -131,7 +131,7 @@ export class ListFormComponent implements OnInit, OnDestroy {
           this.errorMessage = error.message;
         });
       }
-    }
+    }*/
 
 }
 
