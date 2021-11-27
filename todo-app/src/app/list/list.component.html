@@ -1,6 +1,5 @@
 <div *ngIf="list">
     <div>
-        <!--  (click)="detail(article.id)" -->
         <h3 [ngStyle]="colors()">{{list.name}}</h3>
         <div *ngIf="!isDetail">
             <p>Total items: {{(items)?.length}}</p>
@@ -14,7 +13,7 @@
             <button class="btn btn-dark" (click)="detail(list.id)">See all items</button>
         </div>
 
-        <!-- DETAIL -->
+        <!-- detail -->
         <div *ngIf="isDetail">
             <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
                 {{errorMessage}}
@@ -22,10 +21,6 @@
             <ul>
                 <li *ngFor="let item of items" style="list-style-type: none;">
                     <div class="row">
-
-                        <!-- <input type="checkbox" inactive class="form-control col-1" id="isDoneBox" name="isDoneBox"
-                            [checked]="item.isDone" > -->
-
                         <app-item [item]="item" class="col-4"></app-item>
                         <button type="button" class="btn btn-dark col-4 editBtn col-2" (click)="edit(item.id)">
                             <i class="fas fa-edit"></i></button>
@@ -33,46 +28,10 @@
                             <i class="fas fa-trash-alt"></i></button>
                     </div>
                 </li>
-
-
-                <!--                 <li *ngFor="let item of items" style="list-style-type: none;" >
-                    <div class="row" *ngIf="item.isDone" >
-
-                    <input type="checkbox" class="form-control col-1" id="isDoneBox" name="isDoneBox" [checked]="item.isDone" (change)="checkIsDone(item.id)" formControlName="isDone">
-                    <app-item [item]="item" class="col-4"></app-item>
-                    <button type="button" class="btn btn-dark col-4 editBtn col-2" (click)="edit(item.id)">
-                        <i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger col-4 delBtn col-2" (click)="delete(item.id)">
-                        <i class="fas fa-trash-alt"></i></button>
-</div>
-                </li> -->
-
             </ul>
 
             <button type="button" class="btn btn-dark addBtn" (click)="add()"><i class="fas fa-plus"></i> Add
                 item</button>
-
-            <!-- 
-           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            ADD
-          </button>
--->
-
-            <!-- Modal -->
-            <!--
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-
-                <div class="modal-body"> <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <app-item-form [list]=list [isAdd]=isAdd></app-item-form>
-                </div>
-
-              </div>
-            </div>
-          </div>-->
 
         </div>
     </div>

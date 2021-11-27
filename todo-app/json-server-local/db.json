@@ -14,11 +14,6 @@
       "id": 3,
       "name": "Taak MD-AR",
       "color": "#afdeee"
-    },
-    {
-      "id": 4,
-      "name": "Test",
-      "color": "#FFC300"
     }
   ],
   "items": [
@@ -117,14 +112,6 @@
       "date": "2021-10-24",
       "isDone": true,
       "order": 1
-    },
-    {
-      "id": 13,
-      "description": "new item",
-      "date": "",
-      "listId": 4,
-      "order": 20,
-      "isDone": false
     }
   ]
 }

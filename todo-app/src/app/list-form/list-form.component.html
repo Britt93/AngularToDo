@@ -5,21 +5,18 @@
 </div>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="listForm">
-    <!-- Name -->
+    <!-- name -->
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Name" formControlName="name"
             minlength="2">
-        <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div> -->
     </div>
 
 
-    <!-- Color -->
+    <!-- color -->
     <div class="form-group">
         <label>Pick or enter color</label>
         <ngx-colors ngx-colors-trigger [(ngModel)]="color" formControlName="color"></ngx-colors>
-        <!--<p>value: {{ color }}</p>-->
-        
     </div>
 
     <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!listForm.valid || isSubmitted">Add

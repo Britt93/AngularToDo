@@ -18,13 +18,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  //komt van list.ts
+
   @Input() list: List = { id: 0, name: "", color: "" };
   @Input() isDetail: boolean = false;
-
-  //isAdd: boolean = true;
-
-  
 
 
   items: Item[] = [];
@@ -72,33 +68,27 @@ export class ListComponent implements OnInit {
     });
   }
 
-  
-
   getItems() {
     this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
   }
 
-
+/*
 
   item$: Subscription = new Subscription();
   putItem$: Subscription = new Subscription();
 
-
   itemForm = new FormGroup({
     isDone: new FormControl('')
   });
+*/
 
 
-
-  
+  /*
   checkIsDone(id:number){
     const item = this.items[id];
 
     this.putItem$ = this.itemService.putItem(item.id, this.itemForm.value).subscribe();
     
-  }
-
-
-
+  }*/
 
 }

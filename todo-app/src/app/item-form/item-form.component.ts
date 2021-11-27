@@ -15,9 +15,6 @@ import { ListService } from '../list.service';
 })
 export class ItemFormComponent implements OnInit {
 
-  //@Input() list: List = { id: 0, name: "", color: "" };
-  //@Input('isAdd') isAdd: boolean = false;
-
   itemId: number = 0;
   isAdd: boolean = false;
   isEdit: boolean = false;
@@ -25,12 +22,9 @@ export class ItemFormComponent implements OnInit {
   isSubmitted: boolean = false;
   errorMessage: string = '';
 
-
   postItem$: Subscription = new Subscription();
   putItem$: Subscription = new Subscription();
   item$: Subscription = new Subscription();
-
-  
 
   itemForm = new FormGroup({
     id: new FormControl(''),
@@ -40,24 +34,20 @@ export class ItemFormComponent implements OnInit {
     order: new FormControl('', [Validators.required]),
     isDone: new FormControl('', [Validators.required]),
   });
-lists$: Subscription = new Subscription();
+  lists$: Subscription = new Subscription();
   lists: List[] = [];
 
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService, private listService: ListService, ) {
+  constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService, private listService: ListService,) {
     this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
-
-    //this.itemId = +this.router.getCurrentNavigation()?.extras.state?.id;
   }
 
 
 
 
   ngOnInit(): void {
-    
-
     //edit
     if (this.isEdit) {
       const id = this.route.snapshot.paramMap.get('id');
@@ -73,11 +63,11 @@ lists$: Subscription = new Subscription();
             isDone: result.isDone,
           });
         });
-        
+
       }
     }
     //add
-    else{
+    else {
       this.itemForm.patchValue({
         order: 20,
         isDone: false,
@@ -104,18 +94,14 @@ lists$: Subscription = new Subscription();
     }
   }
 
-
-
   onSubmit() {
     //this.isSubmitted = true;
     if (this.isAdd) {
       //add
       this.postItem$ = this.itemService.postItem(this.itemForm.value).subscribe(result => {
-        
+
         //all went well
         this.router.navigateByUrl("/");
-        
-        //this.back();
       },
         error => {
           this.isSubmitted = false;
@@ -123,12 +109,10 @@ lists$: Subscription = new Subscription();
         });
     }
     //edit
-    //if (this.isEdit) {
     else {
       this.putItem$ = this.itemService.putItem(this.itemId, this.itemForm.value).subscribe(result => {
         //all went well
         this.router.navigateByUrl("/");
-        //this.back();
       },
         error => {
           this.isSubmitted = false;

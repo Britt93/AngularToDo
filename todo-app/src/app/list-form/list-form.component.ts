@@ -19,8 +19,6 @@ export class ListFormComponent implements OnInit, OnDestroy {
   isEdit: boolean = false;
   listId: number = 0;
 
-  //list: List = { id: 0, name: "", color:"" };
-
   isSubmitted: boolean = false;
   errorMessage: string = "";
 
@@ -38,12 +36,9 @@ export class ListFormComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private route: ActivatedRoute, private listService: ListService) {
     this.isAdd = this.router.url === '/newlist';
     this.isEdit = !this.isAdd;
-
   }
 
   ngOnInit(): void {
-
-
     // get article if in edit
     if (this.isEdit) {
       const id = this.route.snapshot.paramMap.get('id');
@@ -74,7 +69,6 @@ export class ListFormComponent implements OnInit, OnDestroy {
   }
   
   onSubmit() {
-    //this.isSubmitted = true;
     if (this.isAdd) {
       //add
       this.postList$ = this.listService.postList(this.listForm.value).subscribe(result => {
@@ -87,7 +81,6 @@ export class ListFormComponent implements OnInit, OnDestroy {
               });
     }
     //edit
-    //if (this.isEdit) {
       else{
       this.putList$ = this.listService.putList(this.listId, this.listForm.value).subscribe(result => {
                 //all went well

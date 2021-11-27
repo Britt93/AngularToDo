@@ -5,17 +5,20 @@
 
 
 <form (ngSubmit)="onSubmit()" [formGroup]="itemForm">
+    <!-- description -->
     <div class="form-group">
         <label for="description">Description</label>
         <input type="text" class="form-control" id="description" name="description" placeholder="Description"
             formControlName="description" minlength="2">
     </div>
-    
+
+    <!-- date -->
     <div class="form-group">
         <label for="date">Date</label>
         <input type="date" class="form-control" id="date" name="date" formControlName="date">
     </div>
-
+    
+    <!-- list -->
     <div *ngIf="isAdd" class="form-group">
         <label for="listId">Which list</label>
         <select class="custom-select" formControlName="listId" id="list">
@@ -23,6 +26,7 @@
         </select>
     </div>
 
+    <!-- isDone -->
     <div *ngIf="!isAdd" class="form-group row">
         <input type="checkbox" class="form-control col-1" formControlName="isDone" id="isDone" name="isDone"><label class="col-1" for="isDone">Done</label>
     </div>

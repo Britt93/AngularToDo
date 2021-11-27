@@ -13,9 +13,6 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  //pre-crud
-  //lists$: Observable<List[]> = new Observable<List[]>();
-
   lists: List[] = [];
   lists$: Subscription = new Subscription();
   deleteList$: Subscription = new Subscription();
@@ -25,8 +22,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private listService: ListService, private router: Router) { }
 
   ngOnInit(): void {
-    // pre-crud
-    //this.lists$ = this.listService.getLists();
     this.getLists();
   }
 
@@ -42,7 +37,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   edit(id: number) {
     //Navigate to form in edit mode
-    //this.router.navigate(['list/form'], {state: {id: id, mode: 'edit'}});
     this.router.navigate(['editlist/' + id]);
   }
 

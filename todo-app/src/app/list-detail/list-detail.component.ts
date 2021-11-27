@@ -16,7 +16,6 @@ import { Observable } from 'rxjs';
 export class ListDetailComponent implements OnInit {
   list: List = { id: 0, name: "", color: "" };
 
-  //items$: Observable<Item[]> = new Observable<Item[]>();
   constructor(private listService: ListService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,7 +27,6 @@ export class ListDetailComponent implements OnInit {
         this.list = result;
       }
       );
-
 
     }
   }
