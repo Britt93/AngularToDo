@@ -19,7 +19,7 @@
     </div>
     
     <!-- list -->
-    <div *ngIf="isAdd" class="form-group">
+    <div  class="form-group">
         <label for="listId">Which list</label>
         <select class="custom-select" formControlName="listId" id="list">
             <option *ngFor="let list of lists; let i = index" [ngValue]="list.id">{{list.name}}</option>

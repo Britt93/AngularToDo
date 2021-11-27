@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Taak Angular",
-      "color": "#afdeee"
+      "color": "#7986cb"
     },
     {
       "id": 2,
@@ -13,7 +13,7 @@
     {
       "id": 3,
       "name": "Taak MD-AR",
-      "color": "#afdeee"
+      "color": "#7986cb"
     }
   ],
   "items": [
@@ -67,11 +67,11 @@
     },
     {
       "id": 7,
-      "listId": 2,
       "description": "stofzuigen",
       "date": "2021-12-15",
-      "isDone": false,
-      "order": 2
+      "listId": 2,
+      "order": 2,
+      "isDone": false
     },
     {
       "id": 8,
