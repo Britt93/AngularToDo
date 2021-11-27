@@ -25,10 +25,12 @@ export class ItemFormComponent implements OnInit {
   isSubmitted: boolean = false;
   errorMessage: string = '';
 
+
   postItem$: Subscription = new Subscription();
   putItem$: Subscription = new Subscription();
+  item$: Subscription = new Subscription();
 
-  lists$: Subscription = new Subscription();
+  
 
   itemForm = new FormGroup({
     id: new FormControl(''),
@@ -38,19 +40,23 @@ export class ItemFormComponent implements OnInit {
     order: new FormControl('', [Validators.required]),
     isDone: new FormControl('', [Validators.required]),
   });
-
+lists$: Subscription = new Subscription();
   lists: List[] = [];
+
 
 
   constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService, private listService: ListService, ) {
     this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
 
-
+    //this.itemId = +this.router.getCurrentNavigation()?.extras.state?.id;
   }
 
+
+
+
   ngOnInit(): void {
-    this.isEdit = !this.isAdd;
+    
 
     //edit
     if (this.isEdit) {
@@ -72,7 +78,6 @@ export class ItemFormComponent implements OnInit {
     }
     //add
     else{
-      //const listId = this.route.snapshot.paramMap.get('listId');
       this.itemForm.patchValue({
         order: 20,
         isDone: false,
@@ -88,6 +93,7 @@ export class ItemFormComponent implements OnInit {
   ngOnDestroy(): void {
     this.postItem$.unsubscribe();
     this.putItem$.unsubscribe();
+    this.item$.unsubscribe();
   }
 
   getTitle(): string {

@@ -27,7 +27,14 @@ export class ItemService {
   getItemsOfList(listId: number) : Observable<Item[]> {
     let params = new HttpParams();
     params=params.set('listId', listId);
-    params=params.set('_sort', 'order');
+    params=params.set('_sort', 'isDone');
+    return this.httpClient.get<Item[]>("http://localhost:3000/items", {params: params});
+  }
+
+  getItemsOfListSortDate(listId: number) : Observable<Item[]> {
+    let params = new HttpParams();
+    params=params.set('listId', listId);
+    params=params.set('_sort', 'date');
     return this.httpClient.get<Item[]>("http://localhost:3000/items", {params: params});
   }
 

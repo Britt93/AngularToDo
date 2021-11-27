@@ -27,24 +27,24 @@
       "description": "api aanmaken",
       "date": "2021-10-20",
       "listId": 1,
-      "order": 2,
-      "isDone": false
+      "order": 0,
+      "isDone": true
     },
     {
       "id": 2,
       "description": "crud",
-      "date": "2022-04-20",
+      "date": "2021-10-20",
       "listId": 1,
-      "order": 20,
-      "isDone": false
+      "order": 0,
+      "isDone": true
     },
     {
       "id": 3,
-      "listId": 1,
       "description": "maak status service",
       "date": "2021-10-24",
-      "isDone": false,
-      "order": 3
+      "listId": 1,
+      "order": 0,
+      "isDone": true
     },
     {
       "id": 4,
@@ -67,7 +67,7 @@
       "listId": 2,
       "description": "afstoffen",
       "date": "2021-12-15",
-      "isDone": false,
+      "isDone": true,
       "order": 1
     },
     {
@@ -91,7 +91,7 @@
       "listId": 2,
       "description": "afwassen",
       "date": "2021-10-26",
-      "isDone": true,
+      "isDone": false,
       "order": 3
     },
     {
@@ -99,7 +99,7 @@
       "listId": 3,
       "description": "nav naar AR",
       "date": "2021-10-24",
-      "isDone": false,
+      "isDone": true,
       "order": 2
     },
     {
@@ -115,58 +115,13 @@
       "listId": 3,
       "description": "models",
       "date": "2021-10-24",
-      "isDone": false,
+      "isDone": true,
       "order": 1
     },
     {
       "id": 13,
-      "description": "test",
-      "date": "2022-01-02"
-    },
-    {
-      "id": 14,
-      "description": "test edit",
-      "date": "2021-12-01",
-      "listId": 1,
-      "order": 20,
-      "isDone": false
-    },
-    {
-      "id": 15,
-      "description": "ladida lala",
-      "date": "2021-12-01",
-      "listId": 4,
-      "order": 20,
-      "isDone": false
-    },
-    {
-      "id": 17,
-      "description": "test 17h11",
+      "description": "new item",
       "date": "",
-      "listId": 4,
-      "order": 20,
-      "isDone": false
-    },
-    {
-      "id": 18,
-      "description": "test 17h20",
-      "date": "2021-11-23",
-      "listId": 4,
-      "order": 20,
-      "isDone": false
-    },
-    {
-      "id": 19,
-      "description": "test 17h30",
-      "date": "2021-11-17",
-      "listId": 4,
-      "order": 20,
-      "isDone": false
-    },
-    {
-      "id": 20,
-      "description": "test add 17h50",
-      "date": "2021-11-30",
       "listId": 4,
       "order": 20,
       "isDone": false

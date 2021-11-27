@@ -1,6 +1,11 @@
-<!-- Hier moet nog een checkbox bij + databinding op checked om isDone aan te passen -->
-<!-- crud buttons hier -->
+<!--
 <div *ngIf="item">
-<p>{{ item.description }}  {{ item.date }}</p>
+<p *ngIf="item.isDone" class="text-secondary">{{ item.description }}  {{ item.date }}</p>
+<p *ngIf="!item.isDone" >{{ item.description }}  {{ item.date }}</p>
 </div>
+-->
 
+<div *ngIf="item">
+    <li *ngIf="item.isDone" class="text-secondary" style="list-style-type: disc;">{{ item.description }} <span class="d-none d-sm-block"> {{ item.date }}</span></li>
+    <li *ngIf="!item.isDone" style="list-style-type: circle;">{{ item.description }} <span class="d-none d-sm-block">{{ item.date }}</span></li>
+</div>
