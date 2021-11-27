@@ -2,7 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+//import { resourceLimits } from 'worker_threads';
 import { ItemService } from '../item.service';
+import { ListService } from '../list.service';
+
 
 @Component({
   selector: 'app-item-form',
@@ -11,11 +14,7 @@ import { ItemService } from '../item.service';
 })
 export class ItemFormComponent implements OnInit {
 
- //listId: number = 0;
- //OF
- //list: List = ...;
-
- @Input() listId!:number;
+ //@Input() listId!:number;
 
   itemId: number = 0;
   isAdd: boolean = false;
@@ -37,14 +36,14 @@ export class ItemFormComponent implements OnInit {
   });
 
 
-
-  constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService,) {
+  constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService, private listService: ListService, ) {
     this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
   }
 
   ngOnInit(): void {
 
+    //edit
     if (this.isEdit) {
       const id = this.route.snapshot.paramMap.get('id');
       if (id != null) {
@@ -64,8 +63,9 @@ export class ItemFormComponent implements OnInit {
     }
     //add
     else{
+      const listId = this.route.snapshot.paramMap.get('listId');
       this.itemForm.patchValue({
-        //listId: 1,
+        listId: 4,
         order: 20,
         isDone: false,
       });

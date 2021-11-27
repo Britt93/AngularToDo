@@ -24,14 +24,7 @@ export class ListComponent implements OnInit {
   colors() {
     return { 'color': this.list.color }
   }
-  /*
-  items$: Observable<Item[]> = new Observable<Item[]>(); 
 
-  lists: List[] = [];
-  lists$: Subscription = new Subscription();
-  deleteList$: Subscription = new Subscription();
-  errorMessage: string = '';
-*/
 
   items: Item[] = [];
   items$: Subscription = new Subscription();
@@ -55,9 +48,9 @@ export class ListComponent implements OnInit {
     this.deleteItem$.unsubscribe();
   }
 
-  add() {
+  add(listId: number) {
     //Navigate to form in add mode
-    this.router.navigate(['newitem']);
+    this.router.navigate(['newitem', listId]);
   }
 
   edit(id: number) {

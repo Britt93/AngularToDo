@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListFormComponent } from './list-form/list-form.component';
 import { ItemFormComponent } from './item-form/item-form.component';
 
+import { NgxColorsModule } from 'ngx-colors';
+
+
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { ItemFormComponent } from './item-form/item-form.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxColorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { List } from '../list';
 import { ListService } from '../list.service';
@@ -11,6 +11,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./list-form.component.scss']
 })
 export class ListFormComponent implements OnInit, OnDestroy {
+
+  color: string = '';
+ 
 
   isAdd: boolean = false;
   isEdit: boolean = false;
@@ -33,7 +36,7 @@ export class ListFormComponent implements OnInit, OnDestroy {
   });
 
   constructor(private router: Router, private route: ActivatedRoute, private listService: ListService) {
-    this.isAdd = this.router.url === '/newitem';
+    this.isAdd = this.router.url === '/newlist';
     this.isEdit = !this.isAdd;
 
   }

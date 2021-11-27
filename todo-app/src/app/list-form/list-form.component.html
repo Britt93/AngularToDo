@@ -9,20 +9,28 @@
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Name" formControlName="name"
-        minlength="2">
+            minlength="2">
         <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div> -->
     </div>
 
+
     <!-- Color -->
-    <div class="form-group">
+    <!--    <div class="form-group">
         <label for="color">Color</label>
         <input type="text" class="form-control" id="color" name="color" placeholder="Color" formControlName="color"
         minlength="2">
-        <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div> -->
+    </div>
+-->
+
+    <div class="form-group">
+        <label>Pick or enter color</label>
+        <ngx-colors ngx-colors-trigger [(ngModel)]="color" formControlName="color"></ngx-colors>
+        <p>value: {{ color }}</p>
+        
     </div>
 
-    <button type="submit" class="btn btn-primary" *ngIf="isAdd"
-        [disabled]="!listForm.valid || isSubmitted">Add new</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!listForm.valid || isSubmitted">Add
+        new</button>
     <button type="submit" class="btn btn-primary" *ngIf="isEdit"
         [disabled]="!listForm.valid || isSubmitted">Save</button>
 </form>

@@ -19,6 +19,11 @@
       "id": 4,
       "name": "Test",
       "color": "#FFC300"
+    },
+    {
+      "id": 5,
+      "name": "test add color 2",
+      "color": "#ffb300"
     }
   ],
   "items": [
