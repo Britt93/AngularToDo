@@ -24,7 +24,7 @@
             <ul>
                 <li *ngFor="let item of items" class="row ">
 
-                    <input type="checkbox" class="col-1">
+                    <input type="checkbox" class="form-control col-1" id="isDoneBox" name="isDoneBox" >
                     <app-item [item]="item" class="col-9"></app-item>
                     <button type="button" class="btn btn-dark col-4 editBtn col-2" (click)="edit(item.id)">
                         <i class="fas fa-edit"></i></button>
@@ -34,9 +34,30 @@
                 </li>
 
             </ul>
+ 
+           <button type="button" class="btn btn-dark addBtn" (click)="add()"><i class="fas fa-plus"></i> Add item</button> 
+           
+<!-- 
+           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            ADD
+          </button>
+-->
 
-            <button type="button" class="btn btn-dark addBtn" (click)="add(list.id)"><i class="fas fa-plus"></i> Add item</button>
+          <!-- Modal -->
+          <!--
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
 
+                <div class="modal-body"> <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <app-item-form [list]=list [isAdd]=isAdd></app-item-form>
+                </div>
+
+              </div>
+            </div>
+          </div>-->
 
         </div>
     </div>

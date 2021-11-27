@@ -1,3 +1,6 @@
 <!-- Hier moet nog een checkbox bij + databinding op checked om isDone aan te passen -->
 <!-- crud buttons hier -->
-<p *ngIf="item">{{ item.description }}</p>
+<div *ngIf="item">
+<p>{{ item.description }}  {{ item.date }}</p>
+</div>
+

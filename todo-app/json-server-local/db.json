@@ -19,21 +19,16 @@
       "id": 4,
       "name": "Test",
       "color": "#FFC300"
-    },
-    {
-      "id": 5,
-      "name": "test add color 2",
-      "color": "#ffb300"
     }
   ],
   "items": [
     {
       "id": 1,
-      "listId": 1,
       "description": "api aanmaken",
-      "date": "2021-10-20T22:00:00.000Z",
-      "isDone": false,
-      "order": 2
+      "date": "2021-10-20",
+      "listId": 1,
+      "order": 2,
+      "isDone": false
     },
     {
       "id": 2,
@@ -47,7 +42,7 @@
       "id": 3,
       "listId": 1,
       "description": "maak status service",
-      "date": "2021-10-24T22:00:00.000Z",
+      "date": "2021-10-24",
       "isDone": false,
       "order": 3
     },
@@ -55,7 +50,7 @@
       "id": 4,
       "listId": 1,
       "description": "drag and drop",
-      "date": "2021-10-22T22:00:00.000Z",
+      "date": "2021-10-22",
       "isDone": false,
       "order": 4
     },
@@ -63,7 +58,7 @@
       "id": 5,
       "listId": 1,
       "description": "opmaak verbeteren",
-      "date": "2021-10-28T22:00:00.000Z",
+      "date": "2021-10-28",
       "isDone": false,
       "order": 5
     },
@@ -71,7 +66,7 @@
       "id": 6,
       "listId": 2,
       "description": "afstoffen",
-      "date": "2021-12-15T22:00:00.000Z",
+      "date": "2021-12-15",
       "isDone": false,
       "order": 1
     },
@@ -79,7 +74,7 @@
       "id": 7,
       "listId": 2,
       "description": "stofzuigen",
-      "date": "2021-12-15T22:00:00.000Z",
+      "date": "2021-12-15",
       "isDone": false,
       "order": 2
     },
@@ -87,7 +82,7 @@
       "id": 8,
       "listId": 2,
       "description": "dwijlen",
-      "date": "2021-10-20T22:00:00.000Z",
+      "date": "2021-10-20",
       "isDone": false,
       "order": 4
     },
@@ -95,7 +90,7 @@
       "id": 9,
       "listId": 2,
       "description": "afwassen",
-      "date": "2021-10-26T22:00:00.000Z",
+      "date": "2021-10-26",
       "isDone": true,
       "order": 3
     },
@@ -103,7 +98,7 @@
       "id": 10,
       "listId": 3,
       "description": "nav naar AR",
-      "date": "2021-10-24T22:00:00.000Z",
+      "date": "2021-10-24",
       "isDone": false,
       "order": 2
     },
@@ -111,7 +106,7 @@
       "id": 11,
       "listId": 3,
       "description": "comm flutter - wikitude",
-      "date": "2021-10-24T22:00:00.000Z",
+      "date": "2021-10-24",
       "isDone": false,
       "order": 3
     },
@@ -119,7 +114,7 @@
       "id": 12,
       "listId": 3,
       "description": "models",
-      "date": "2021-10-24T22:00:00.000Z",
+      "date": "2021-10-24",
       "isDone": false,
       "order": 1
     },
@@ -130,9 +125,49 @@
     },
     {
       "id": 14,
-      "description": "test isDone edit",
+      "description": "test edit",
       "date": "2021-12-01",
       "listId": 1,
+      "order": 20,
+      "isDone": false
+    },
+    {
+      "id": 15,
+      "description": "ladida lala",
+      "date": "2021-12-01",
+      "listId": 4,
+      "order": 20,
+      "isDone": false
+    },
+    {
+      "id": 17,
+      "description": "test 17h11",
+      "date": "",
+      "listId": 4,
+      "order": 20,
+      "isDone": false
+    },
+    {
+      "id": 18,
+      "description": "test 17h20",
+      "date": "2021-11-23",
+      "listId": 4,
+      "order": 20,
+      "isDone": false
+    },
+    {
+      "id": 19,
+      "description": "test 17h30",
+      "date": "2021-11-17",
+      "listId": 4,
+      "order": 20,
+      "isDone": false
+    },
+    {
+      "id": 20,
+      "description": "test add 17h50",
+      "date": "2021-11-30",
+      "listId": 4,
       "order": 20,
       "isDone": false
     }

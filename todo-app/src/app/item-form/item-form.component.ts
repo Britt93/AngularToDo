@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 //import { resourceLimits } from 'worker_threads';
 import { ItemService } from '../item.service';
+import { List } from '../list';
 import { ListService } from '../list.service';
 
 
@@ -14,7 +15,8 @@ import { ListService } from '../list.service';
 })
 export class ItemFormComponent implements OnInit {
 
- //@Input() listId!:number;
+  //@Input() list: List = { id: 0, name: "", color: "" };
+  //@Input('isAdd') isAdd: boolean = false;
 
   itemId: number = 0;
   isAdd: boolean = false;
@@ -26,22 +28,29 @@ export class ItemFormComponent implements OnInit {
   postItem$: Subscription = new Subscription();
   putItem$: Subscription = new Subscription();
 
+  lists$: Subscription = new Subscription();
+
   itemForm = new FormGroup({
     id: new FormControl(''),
     description: new FormControl('', [Validators.required]),
-    date: new FormControl('', [Validators.required]),
+    date: new FormControl(''),
     listId: new FormControl('', [Validators.required]),
     order: new FormControl('', [Validators.required]),
     isDone: new FormControl('', [Validators.required]),
   });
 
+  lists: List[] = [];
+
 
   constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService, private listService: ListService, ) {
     this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
+
+
   }
 
   ngOnInit(): void {
+    this.isEdit = !this.isAdd;
 
     //edit
     if (this.isEdit) {
@@ -54,8 +63,8 @@ export class ItemFormComponent implements OnInit {
             description: result.description,
             date: result.date,
             listId: result.listId,
-            order: 20,
-            isDone: false,
+            order: result.order,
+            isDone: result.isDone,
           });
         });
         
@@ -63,13 +72,17 @@ export class ItemFormComponent implements OnInit {
     }
     //add
     else{
-      const listId = this.route.snapshot.paramMap.get('listId');
+      //const listId = this.route.snapshot.paramMap.get('listId');
       this.itemForm.patchValue({
-        listId: 4,
         order: 20,
         isDone: false,
       });
     }
+
+    // get lists
+    this.lists$ = this.listService.getLists().subscribe(result => {
+      this.lists = result;
+    });
   }
 
   ngOnDestroy(): void {
@@ -92,8 +105,10 @@ export class ItemFormComponent implements OnInit {
     if (this.isAdd) {
       //add
       this.postItem$ = this.itemService.postItem(this.itemForm.value).subscribe(result => {
+        
         //all went well
         this.router.navigateByUrl("/");
+        
         //this.back();
       },
         error => {

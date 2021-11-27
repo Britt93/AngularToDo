@@ -1,5 +1,3 @@
-
-
 <h1>{{getTitle()}}</h1>
 <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
     {{errorMessage}}
@@ -13,15 +11,27 @@
             formControlName="description" minlength="2">
     </div>
     <div class="form-group">
-        <label for="subtitle">Date</label>
+        <label for="date">Date</label>
         <input type="date" class="form-control" id="date" name="date" formControlName="date">
     </div>
 
-    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!itemForm.valid || isSubmitted">
+    <div class="form-group">
+        <label for="listId">Which list</label>
+
+
+
+            <select class="custom-select" formControlName="listId" id="list">
+              <option *ngFor="let list of lists; let i = index" [ngValue]="list.id">{{list.name}}</option>
+            </select>
+
+
+
+    </div>
+
+    <button class="btn btn-primary" *ngIf="isAdd" [disabled]="!itemForm.valid || isSubmitted">
         Add new item
     </button>
-    <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!itemForm.valid || isSubmitted">
+    <button type="submit" class="btn btn-primary" *ngIf="!isAdd" [disabled]="!itemForm.valid || isSubmitted">
         Save
     </button>
 </form>
-

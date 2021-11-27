@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'list/:id', component: ListDetailComponent },
   { path: 'newlist', component: ListFormComponent },
   { path: 'editlist/:id', component: ListFormComponent},
-  { path: 'newitem/:listId', component: ItemFormComponent},
+  { path: 'newitem', component: ItemFormComponent},
   { path: 'edititem/:id', component: ItemFormComponent}
 ];
 

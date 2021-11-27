@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { List } from '../list';
 import { ItemService } from '../item.service';
@@ -21,9 +21,10 @@ export class ListComponent implements OnInit {
   @Input() list: List = { id: 0, name: "", color: "" };
   @Input() isDetail: boolean = false;
 
-  colors() {
-    return { 'color': this.list.color }
-  }
+  isAdd: boolean = true;
+
+
+
 
 
   items: Item[] = [];
@@ -35,8 +36,11 @@ export class ListComponent implements OnInit {
   constructor(private router: Router, private itemService: ItemService, private listService: ListService) { }
 
   ngOnInit(): void {
-    //this.items$ = this.itemService.getItemsOfList(this.list.id);
     this.getItems()
+  }
+
+  colors() {
+    return { 'color': this.list.color }
   }
 
   detail(id: number) {
@@ -48,9 +52,12 @@ export class ListComponent implements OnInit {
     this.deleteItem$.unsubscribe();
   }
 
-  add(listId: number) {
+  add() {
     //Navigate to form in add mode
-    this.router.navigate(['newitem', listId]);
+    this.router.navigate(['newitem']);
+
+
+
   }
 
   edit(id: number) {
@@ -70,6 +77,11 @@ export class ListComponent implements OnInit {
 
   getItems() {
     this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
+  }
+
+  checkBox(id: number){
+    this
+
   }
 
 }
