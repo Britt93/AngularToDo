@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { List } from '../list';
 import { ListService } from '../list.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-//import { Item } from '../item';
-
-//import { ItemService } from '../item.service';
-
 
 @Component({
   selector: 'app-list-detail',
@@ -22,13 +17,10 @@ export class ListDetailComponent implements OnInit {
     const listId = this.route.snapshot.paramMap.get('id');
     console.log(listId);
     if (listId != null) {
-
       this.listService.getListById(+listId).subscribe(result => {
         this.list = result;
       }
       );
-
     }
   }
-
 }

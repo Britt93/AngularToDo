@@ -12,7 +12,6 @@
             minlength="2">
     </div>
 
-
     <!-- color -->
     <div class="form-group">
         <label>Pick or enter color</label>
@@ -24,6 +23,6 @@
     <button type="submit" class="btn btn-success" *ngIf="isEdit"
         [disabled]="!listForm.valid || isSubmitted">Save</button>
 
-        <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()" >Back</button>
+    <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()">Back</button>
 
 </form>

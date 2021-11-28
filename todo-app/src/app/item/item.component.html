@@ -1,8 +1,8 @@
 <div *ngIf="item">
-    <li *ngIf="item.isDone" class="text-secondary" style="list-style-type: disc;">
+    <li *ngIf="item.isDone" class="text-secondary"  class="done">
         {{ item.description }} <span class="d-none d-sm-block"> {{ item.date }}</span>
     </li>
-    <li *ngIf="!item.isDone" style="list-style-type: circle;">
+    <li *ngIf="!item.isDone"  class="notDone">
         {{ item.description }} <span class="d-none d-sm-block">{{ item.date }}</span>
     </li>
 </div>

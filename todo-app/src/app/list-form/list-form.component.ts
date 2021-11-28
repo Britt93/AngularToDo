@@ -1,11 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { List } from '../list';
 import { ListService } from '../list.service';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {Location} from '@angular/common';
-
 
 @Component({
   selector: 'app-list-form',
@@ -16,7 +14,6 @@ export class ListFormComponent implements OnInit, OnDestroy {
 
   color: string = '';
  
-
   isAdd: boolean = false;
   isEdit: boolean = false;
   listId: number = 0;
@@ -24,7 +21,6 @@ export class ListFormComponent implements OnInit, OnDestroy {
   isSubmitted: boolean = false;
   errorMessage: string = "";
 
-  //list$: Subscription = new Subscription();
   postList$: Subscription = new Subscription();
   putList$: Subscription = new Subscription();
 
@@ -97,8 +93,6 @@ export class ListFormComponent implements OnInit, OnDestroy {
                 this.errorMessage = error.message;
               });
     }
-
   }
-
 }
 

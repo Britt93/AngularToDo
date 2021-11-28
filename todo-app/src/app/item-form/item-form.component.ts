@@ -2,14 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-//import { resourceLimits } from 'worker_threads';
 import { ItemService } from '../item.service';
 import { List } from '../list';
 import { ListService } from '../list.service';
-
 import {Location} from '@angular/common';
-
-
 
 @Component({
   selector: 'app-item-form',
@@ -37,10 +33,9 @@ export class ItemFormComponent implements OnInit {
     order: new FormControl('', [Validators.required]),
     isDone: new FormControl('', [Validators.required]),
   });
+
   lists$: Subscription = new Subscription();
   lists: List[] = [];
-
-
 
   constructor(private router: Router, 
     private route: ActivatedRoute, 
@@ -50,9 +45,6 @@ export class ItemFormComponent implements OnInit {
     this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
   }
-
-
-
 
   ngOnInit(): void {
     //edit
@@ -76,7 +68,7 @@ export class ItemFormComponent implements OnInit {
     //add
     else {
       this.itemForm.patchValue({
-        order: 20,
+        order: 1,
         isDone: false,
       });
     }
@@ -112,7 +104,6 @@ export class ItemFormComponent implements OnInit {
       this.postItem$ = this.itemService.postItem(this.itemForm.value).subscribe(result => {
 
         //all went well
-        //this.router.navigateByUrl("/");
         this._location.back();
       },
         error => {
@@ -124,7 +115,6 @@ export class ItemFormComponent implements OnInit {
     else {
       this.putItem$ = this.itemService.putItem(this.itemId, this.itemForm.value).subscribe(result => {
         //all went well
-        //this.router.navigateByUrl("/");
         this._location.back();
       },
         error => {

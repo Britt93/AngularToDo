@@ -3,7 +3,6 @@
     {{errorMessage}}
 </div>
 
-
 <form (ngSubmit)="onSubmit()" [formGroup]="itemForm">
     <!-- description -->
     <div class="form-group">
@@ -12,32 +11,35 @@
             formControlName="description" minlength="2">
     </div>
 
-    <!-- date -->
-    <div class="form-group">
-        <label for="date">Date</label>
-        <input type="date" class="form-control" id="date" name="date" formControlName="date">
-    </div>
-    
-    <!-- list -->
-    <div  class="form-group">
-        <label for="listId">Which list</label>
-        <select class="custom-select" formControlName="listId" id="list">
-            <option *ngFor="let list of lists; let i = index" [ngValue]="list.id">{{list.name}}</option>
-        </select>
+    <div class="row">
+        <!-- date -->
+        <div class="form-group col-12 col-sm-6">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" name="date" formControlName="date">
+        </div>
+
+        <!-- list -->
+        <div class="form-group  col-12 col-sm-6">
+            <label for="listId">List</label>
+            <select class="custom-select" formControlName="listId" id="list">
+                <option *ngFor="let list of lists; let i = index" [ngValue]="list.id">{{list.name}}</option>
+            </select>
+        </div>
     </div>
 
     <!-- isDone -->
     <div *ngIf="!isAdd" class="form-group row">
-        <input type="checkbox" class="form-control col-1" formControlName="isDone" id="isDone" name="isDone"><label class="col-1" for="isDone">Done</label>
+        <input type="checkbox" class="form-control col-1 mx-3" formControlName="isDone" id="isDone" name="isDone"><label
+            class="col-1" for="isDone">Done</label>
     </div>
 
-
+    
     <button class="btn btn-primary" *ngIf="isAdd" [disabled]="!itemForm.valid || isSubmitted">
         Add new item
     </button>
     <button type="submit" class="btn btn-success" *ngIf="!isAdd" [disabled]="!itemForm.valid || isSubmitted">
         Save
     </button>
-    <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()" >Back</button>
+    <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()">Back</button>
 
 </form>

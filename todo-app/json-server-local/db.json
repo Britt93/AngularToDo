@@ -39,7 +39,7 @@
       "date": "2021-10-24",
       "listId": 1,
       "order": 0,
-      "isDone": true
+      "isDone": false
     },
     {
       "id": 4,
@@ -75,19 +75,19 @@
     },
     {
       "id": 8,
-      "listId": 2,
       "description": "dwijlen",
-      "date": "2021-10-20",
-      "isDone": false,
-      "order": 4
+      "date": "2021-12-02",
+      "listId": 2,
+      "order": 4,
+      "isDone": false
     },
     {
       "id": 9,
-      "listId": 2,
       "description": "afwassen",
-      "date": "2021-10-26",
-      "isDone": false,
-      "order": 3
+      "date": "2021-12-10",
+      "listId": 2,
+      "order": 3,
+      "isDone": false
     },
     {
       "id": 10,

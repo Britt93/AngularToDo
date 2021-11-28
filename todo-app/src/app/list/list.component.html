@@ -1,16 +1,15 @@
 <div *ngIf="list">
     <div>
         <h3 [ngStyle]="colors()">{{list.name}}</h3>
+
         <div *ngIf="!isDetail">
             <p>Total items: {{(items)?.length}}</p>
-
+            <button class="btn btn-dark" (click)="detail(list.id)">See all items</button>
             <ul class="d-none d-md-block">
-                <li *ngFor="let item of items | slice:0:3;" style="list-style-type: none;">
+                <li *ngFor="let item of items | slice:0:3;" >
                     <app-item [item]="item"></app-item>
                 </li>
             </ul>
-
-            <button class="btn btn-dark" (click)="detail(list.id)">See all items</button>
         </div>
 
         <!-- detail -->
@@ -23,27 +22,27 @@
             <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()">Back</button>
 
             <!-- filter -->
-                <div  class="form-group">
-                    <label for="sort">Sort on:  </label>
-                    <select class="custom-select mx-2" formControlName="sort" id="sort" (change)="onSort($event)" [value] = 1 style="max-width: 110px;">
-                        <option value="1">Done</option>
-                        <option value="2">Date</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="sort">Sort on: </label>
+                <select class="custom-select mx-2" formControlName="sort" id="sort" (change)="onSort($event)" [value]=1>
+                    <option value="1">Done</option>
+                    <option value="2">Date</option>
+                </select>
+            </div>
 
-             <ul>
-                <li *ngFor="let item of items" style="list-style-type: none;" >
+            <ul>
+                <li *ngFor="let item of items">
                     <div class="row">
-                        <app-item [item]="item" class="col-4"></app-item>
-                        <button type="button" class="btn btn-dark col-4 editBtn col-2" (click)="edit(item.id)">
+                        <app-item [item]="item" class="col-7 col-md-3"></app-item>
+                        <button type="button" class="btn btn-link text-dark col-4 editBtn col-2"
+                            (click)="edit(item.id)">
                             <i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn btn-danger col-4 delBtn col-2" (click)="delete(item.id)">
+                        <button type="button" class="btn btn-link text-danger col-4 delBtn col-2"
+                            (click)="delete(item.id)">
                             <i class="fas fa-trash-alt"></i></button>
                     </div>
                 </li>
             </ul>
-
-
 
         </div>
     </div>
