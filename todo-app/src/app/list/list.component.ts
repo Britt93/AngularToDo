@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
@@ -23,7 +23,6 @@ export class ListComponent implements OnInit {
   errorMessage: string = '';
 
   selectedSort: number = 1;
-  //checkIsDone: boolean = false;
 
   constructor(private router: Router, private itemService: ItemService, private listService: ListService, private _location: Location) { }
 

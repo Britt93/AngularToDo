@@ -1,4 +1,3 @@
-<!-- *ngIf="list" -> laadt te snel en gebruikt de list met id=0 uit list.component.ts  -->
-<!-- *ngIf="list.id > 0" -> laadt pas in vanaf dat je met de juiste lijst werkt -->
-<app-list *ngIf="list.id > 0" [list]="list" [isDetail]="true" ></app-list>
-
+<!-- *ngIf="list"           -> laadt te snel en gebruikt de list met id=0 uit list.component.ts -->
+<!-- *ngIf="list.id > 0"    -> laadt pas in vanaf dat je met de juiste lijst werkt -->
+<app-list *ngIf="list.id > 0" [list]="list" [isDetail]="true"></app-list>

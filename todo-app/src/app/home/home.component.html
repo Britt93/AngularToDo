@@ -10,8 +10,12 @@
         <div class="row">
             <app-list class="col-12" [list]="list" [isDetail]="false"></app-list>
 
-            <button type="button" class="btn btn-dark btn-sm col-4 editBtn mx-3 my-2" (click)="edit(list.id)"><i class="fas fa-edit"></i></button>
-            <button type="button" class="btn btn-danger btn-sm col-4 delBtn my-2" (click)="delete(list.id)"><i class="fas fa-trash-alt"></i></button>
+            <button type="button" class="btn btn-dark btn-sm col-4 editBtn mx-3 my-2" (click)="edit(list.id)">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button type="button" class="btn btn-danger btn-sm col-4 delBtn my-2" (click)="delete(list.id)">
+                <i class="fas fa-trash-alt"></i>
+            </button>
         </div>
     </div>
 </div>

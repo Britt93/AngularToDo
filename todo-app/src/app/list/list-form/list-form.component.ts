@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ListService } from '../list.service';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-form',
@@ -75,7 +75,7 @@ export class ListFormComponent implements OnInit, OnDestroy {
       //add
       this.postList$ = this.listService.postList(this.listForm.value).subscribe(result => {
                 //all went well
-                this.router.navigateByUrl("/");
+                this._location.back();
               },
               error => {
                 this.isSubmitted = false;
@@ -86,7 +86,7 @@ export class ListFormComponent implements OnInit, OnDestroy {
       else{
       this.putList$ = this.listService.putList(this.listId, this.listForm.value).subscribe(result => {
                 //all went well
-                this.router.navigateByUrl("/");
+                this._location.back();
               },
               error => {
                 this.isSubmitted = false;

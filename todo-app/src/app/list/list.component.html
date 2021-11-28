@@ -6,7 +6,7 @@
             <p>Total items: {{(items)?.length}}</p>
             <button class="btn btn-dark" (click)="detail(list.id)">See all items</button>
             <ul class="d-none d-md-block">
-                <li *ngFor="let item of items | slice:0:3;" >
+                <li *ngFor="let item of items | slice:0:3;">
                     <app-item [item]="item"></app-item>
                 </li>
             </ul>
@@ -24,7 +24,7 @@
             <!-- filter -->
             <div class="form-group">
                 <label for="sort">Sort on: </label>
-                <select class="custom-select mx-2" formControlName="sort" id="sort" (change)="onSort($event)" [value]=1>
+                <select class="custom-select mx-2" id="sort" (change)="onSort($event)" [value]=1>
                     <option value="1">Done</option>
                     <option value="2">Date</option>
                 </select>
@@ -36,10 +36,12 @@
                         <app-item [item]="item" class="col-7 col-md-3"></app-item>
                         <button type="button" class="btn btn-link text-dark col-4 editBtn col-2"
                             (click)="edit(item.id)">
-                            <i class="fas fa-edit"></i></button>
+                            <i class="fas fa-edit"></i>
+                        </button>
                         <button type="button" class="btn btn-link text-danger col-4 delBtn col-2"
                             (click)="delete(item.id)">
-                            <i class="fas fa-trash-alt"></i></button>
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                     </div>
                 </li>
             </ul>
