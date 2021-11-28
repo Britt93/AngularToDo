@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Location } from '@angular/common';
 import { ItemService } from '../item.service';
-import { List } from '../list';
-import { ListService } from '../list.service';
-import {Location} from '@angular/common';
+import { List } from 'src/app/list/list';
+import { ListService } from 'src/app/list/list.service';
 
 @Component({
   selector: 'app-item-form',

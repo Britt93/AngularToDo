@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { List } from '../list';
-import { ItemService } from '../item.service';
-import { Item } from '../item';
 import { Subscription } from 'rxjs';
-import { ListService } from '../list.service';
 import { Location } from '@angular/common';
+import { ListService } from './list.service';
+import { Item } from '../item/item';
+import { ItemService } from '../item/item.service';
+import { List } from './list';
 
 @Component({
   selector: 'app-list',

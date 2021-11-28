@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { List } from '../list';
-import { ListService } from '../list.service';
 import { Subscription } from 'rxjs';
 import {Router} from '@angular/router';
+import { List } from '../list/list';
+import { ListService } from '../list/list.service';
 
 @Component({
   selector: 'app-home',
