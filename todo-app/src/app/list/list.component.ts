@@ -9,7 +9,7 @@ import { Observable, Subscription } from 'rxjs';
 import { ListService } from '../list.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 
 
@@ -32,6 +32,9 @@ export class ListComponent implements OnInit {
 
   errorMessage: string = '';
 
+
+  selectedSort: number = 1;
+
   constructor(private router: Router, private itemService: ItemService, private listService: ListService, private _location: Location) { }
 
   ngOnInit(): void {
@@ -46,8 +49,21 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/list', id]);
   }
 
-  back(){
+  back() {
     this._location.back();
+  }
+
+  onSort(event: any) {
+    this.selectedSort = event.target.value;
+
+    if (this.selectedSort == 1) {
+      this.items$ = this.itemService.getItemsOfListSortDate(this.list.id).subscribe(result => this.items = result);
+    }
+    else {
+      this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
+    }
+
+
   }
 
   ngOnDestroy(): void {
@@ -62,7 +78,7 @@ export class ListComponent implements OnInit {
 
   edit(id: number) {
     //Navigate to form in edit mode
-    this.router.navigate(['edititem/' + id] );
+    this.router.navigate(['edititem/' + id]);
   }
 
   delete(id: number) {
@@ -76,18 +92,20 @@ export class ListComponent implements OnInit {
   }
 
   getItems() {
+
     this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
+
   }
 
-/*
-
-  item$: Subscription = new Subscription();
-  putItem$: Subscription = new Subscription();
-
-  itemForm = new FormGroup({
-    isDone: new FormControl('')
-  });
-*/
+  /*
+  
+    item$: Subscription = new Subscription();
+    putItem$: Subscription = new Subscription();
+  
+    itemForm = new FormGroup({
+      isDone: new FormControl('')
+    });
+  */
 
 
   /*

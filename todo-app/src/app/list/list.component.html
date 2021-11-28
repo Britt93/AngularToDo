@@ -20,10 +20,19 @@
             </div>
             <button type="button" class="btn btn-dark addBtn my-3" (click)="add()">
                 <i class="fas fa-plus"></i> Add item</button>
+            <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()">Back</button>
 
-                <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()" >Back</button>
-            <ul>
-                <li *ngFor="let item of items" style="list-style-type: none;">
+            <!-- filter -->
+                <div  class="form-group">
+                    <label for="sort">Sort on:  </label>
+                    <select class="custom-select mx-2" formControlName="sort" id="sort" (change)="onSort($event)" [value] = 2 style="max-width: 110px;">
+                        <option value="1">Date</option>
+                        <option value="2">Done</option>
+                    </select>
+                </div>
+
+             <ul>
+                <li *ngFor="let item of items" style="list-style-type: none;" >
                     <div class="row">
                         <app-item [item]="item" class="col-4"></app-item>
                         <button type="button" class="btn btn-dark col-4 editBtn col-2" (click)="edit(item.id)">
