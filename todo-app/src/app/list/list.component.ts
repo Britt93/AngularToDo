@@ -9,6 +9,9 @@ import { Observable, Subscription } from 'rxjs';
 import { ListService } from '../list.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import {Location} from '@angular/common';
+
+
 
 
 
@@ -29,7 +32,7 @@ export class ListComponent implements OnInit {
 
   errorMessage: string = '';
 
-  constructor(private router: Router, private itemService: ItemService, private listService: ListService) { }
+  constructor(private router: Router, private itemService: ItemService, private listService: ListService, private _location: Location) { }
 
   ngOnInit(): void {
     this.getItems()
@@ -41,6 +44,10 @@ export class ListComponent implements OnInit {
 
   detail(id: number) {
     this.router.navigate(['/list', id]);
+  }
+
+  back(){
+    this._location.back();
   }
 
   ngOnDestroy(): void {

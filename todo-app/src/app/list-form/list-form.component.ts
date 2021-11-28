@@ -4,6 +4,8 @@ import { List } from '../list';
 import { ListService } from '../list.service';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-list-form',
@@ -33,7 +35,7 @@ export class ListFormComponent implements OnInit, OnDestroy {
     color: new FormControl('', [Validators.required])
   });
 
-  constructor(private router: Router, private route: ActivatedRoute, private listService: ListService) {
+  constructor(private router: Router, private route: ActivatedRoute, private listService: ListService, private _location: Location) {
     this.isAdd = this.router.url === '/newlist';
     this.isEdit = !this.isAdd;
   }
@@ -58,6 +60,10 @@ export class ListFormComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.postList$.unsubscribe();
     this.putList$.unsubscribe();
+  }
+
+  back(){
+    this._location.back();
   }
 
   getTitle(): string {

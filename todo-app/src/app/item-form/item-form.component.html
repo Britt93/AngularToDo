@@ -35,7 +35,9 @@
     <button class="btn btn-primary" *ngIf="isAdd" [disabled]="!itemForm.valid || isSubmitted">
         Add new item
     </button>
-    <button type="submit" class="btn btn-primary" *ngIf="!isAdd" [disabled]="!itemForm.valid || isSubmitted">
+    <button type="submit" class="btn btn-success" *ngIf="!isAdd" [disabled]="!itemForm.valid || isSubmitted">
         Save
     </button>
+    <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()" >Back</button>
+
 </form>

@@ -18,6 +18,10 @@
             <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
                 {{errorMessage}}
             </div>
+            <button type="button" class="btn btn-dark addBtn my-3" (click)="add()">
+                <i class="fas fa-plus"></i> Add item</button>
+
+                <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()" >Back</button>
             <ul>
                 <li *ngFor="let item of items" style="list-style-type: none;">
                     <div class="row">
@@ -30,8 +34,7 @@
                 </li>
             </ul>
 
-            <button type="button" class="btn btn-dark addBtn" (click)="add()"><i class="fas fa-plus"></i> Add
-                item</button>
+
 
         </div>
     </div>

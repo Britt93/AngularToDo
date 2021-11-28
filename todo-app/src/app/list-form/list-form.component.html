@@ -19,8 +19,11 @@
         <ngx-colors ngx-colors-trigger [(ngModel)]="color" formControlName="color"></ngx-colors>
     </div>
 
-    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!listForm.valid || isSubmitted">Add
+    <button type="submit" class="btn btn-success" *ngIf="isAdd" [disabled]="!listForm.valid || isSubmitted">Add
         new</button>
-    <button type="submit" class="btn btn-primary" *ngIf="isEdit"
+    <button type="submit" class="btn btn-success" *ngIf="isEdit"
         [disabled]="!listForm.valid || isSubmitted">Save</button>
+
+        <button type="button" class="btn btn-dark addBtn mx-2" (click)="back()" >Back</button>
+
 </form>

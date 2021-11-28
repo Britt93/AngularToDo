@@ -42,7 +42,11 @@ export class ItemFormComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService, private listService: ListService, private _location: Location) {
+  constructor(private router: Router, 
+    private route: ActivatedRoute, 
+    private itemService: ItemService, 
+    private listService: ListService, 
+    private _location: Location) {
     this.isAdd = this.router.url === '/newitem';
     this.isEdit = !this.isAdd;
   }
@@ -87,6 +91,10 @@ export class ItemFormComponent implements OnInit {
     this.postItem$.unsubscribe();
     this.putItem$.unsubscribe();
     this.item$.unsubscribe();
+  }
+
+  back(){
+    this._location.back();
   }
 
   getTitle(): string {
