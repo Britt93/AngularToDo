@@ -56,12 +56,8 @@ export class ListComponent implements OnInit {
   onSort(event: any) {
     this.selectedSort = event.target.value;
 
-    if (this.selectedSort == 1) {
-      this.items$ = this.itemService.getItemsOfListSortDate(this.list.id).subscribe(result => this.items = result);
-    }
-    else {
-      this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
-    }
+    this.getItems();
+
 
 
   }
@@ -93,8 +89,13 @@ export class ListComponent implements OnInit {
 
   getItems() {
 
-    this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
+    if (this.selectedSort == 1) {
+      this.items$ = this.itemService.getItemsOfList(this.list.id).subscribe(result => this.items = result);
+    }
+    else {
 
+      this.items$ = this.itemService.getItemsOfListSortDate(this.list.id).subscribe(result => this.items = result);
+    }
   }
 
   /*
